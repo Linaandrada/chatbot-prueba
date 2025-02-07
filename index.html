@@ -1,111 +1,48 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Prueba del Chatbot</title>
-  <style>
-    /* Definición de variables de color */
-    :root {
-      --brand-primary: #FFC0E6;      /* Contenedor principal: Header, etc. */
-      --brand-on-primary: #002E7B;   /* Textos sobre primary */
-      --brand-secondary: #A1E9FF;    /* Contenedor secundario: Secciones informativas */
-      --brand-on-secondary: #002E7B; /* Textos sobre secondary */
-      --neutral-one: #FFFFFF;        /* Fondos y superficies */
-      --neutral-two: #2E312F;        /* Textos, iconos y sombras en alto contraste */
-    }
-
-    /* Estilos generales */
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: var(--neutral-one);
-      color: var(--neutral-two);
-      line-height: 1.6;
-    }
-
-    header {
-      background-color: var(--brand-primary);
-      color: var(--brand-on-primary);
-      padding: 1.5rem 2rem;
-      text-align: center;
-      box-shadow: 0 2px 4px rgba(46, 49, 47, 0.3);
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-
-    /* Sección introductoria */
-    .intro {
-      background-color: var(--brand-secondary);
-      color: var(--brand-on-secondary);
-      padding: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(46, 49, 47, 0.2);
-      text-align: center;
-    }
-
-    /* Sección donde se ubica el chatbot */
-    .chatbot-section {
-      background-color: var(--neutral-one);
-      padding: 2rem;
-      margin-top: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(46, 49, 47, 0.2);
-    }
-
-    footer {
-      background-color: var(--brand-primary);
-      color: var(--brand-on-primary);
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
-      font-size: 0.9rem;
-    }
-
-    h1, h2, h3 {
-      margin: 0 0 1rem;
-    }
-
-    p {
-      margin: 0 0 1rem;
-    }
-    
-    /* Ajustes para dispositivos móviles */
-    @media (max-width: 768px) {
-      header, .intro, .chatbot-section, footer {
-        padding: 1rem;
-      }
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Optimized Layout</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.0.0/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-  <header>
-    <h1>Bienvenido a la Prueba del Chatbot</h1>
+<body class="bg-gray-100 text-gray-900">
+  <header class="bg-blue-600 text-white p-4">
+    <h1 class="text-2xl font-bold">Welcome to My Optimized Page</h1>
   </header>
 
-  <div class="container">
-    <section class="intro">
-      <h2>Conoce nuestro Asistente Virtual</h2>
-      <p>Interactúa con nuestro chatbot y descubre cómo puede ayudarte en tus consultas.</p>
+  <main class="max-w-4xl mx-auto p-4">
+    <section class="mb-8">
+      <h2 class="text-xl font-semibold mb-2">Section 1</h2>
+      <p class="text-base">This is a paragraph with some content. Tailwind CSS makes styling easy and consistent across your project.</p>
     </section>
 
-    <section class="chatbot-section">
-      <h3>Chatbot en Acción</h3>
-      <p>Prueba a interactuar con el asistente a continuación:</p>
-      
-      <!-- Start of aper Zendesk Widget script -->
-      <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=6fb9dc32-179d-4d50-81df-15b953b85fec"></script>
-      <!-- End of aper Zendesk Widget script -->
-      
+    <section class="mb-8">
+      <h2 class="text-xl font-semibold mb-2">Section 2</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="bg-white p-4 rounded shadow">
+          <h3 class="text-lg font-medium">Card 1</h3>
+          <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        <div class="bg-white p-4 rounded shadow">
+          <h3 class="text-lg font-medium">Card 2</h3>
+          <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        <div class="bg-white p-4 rounded shadow">
+          <h3 class="text-lg font-medium">Card 3</h3>
+          <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
     </section>
-  </div>
 
-  <footer>
-    <p>© 2025 Tu Empresa - Todos los derechos reservados</p>
+    <section>
+      <h2 class="text-xl font-semibold mb-2">Section 3</h2>
+      <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Click Me</button>
+    </section>
+  </main>
+
+  <footer class="bg-gray-800 text-white p-4 text-center">
+    <p>&copy; 2025 Optimized Page. All Rights Reserved.</p>
   </footer>
 </body>
 </html>
