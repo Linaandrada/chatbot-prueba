@@ -1,48 +1,183 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Optimized Layout</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.0.0/dist/tailwind.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playground del Bot Core</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            position: relative;
+            background: white;
+            min-height: 100vh;
+        }
+
+        .header {
+            width: 100%;
+            height: 274px;
+            padding: 124px 141px 113px;
+            background: #002E7B;
+        }
+
+        .title {
+            color: white;
+            font-size: 32px;
+            font-weight: 400;
+            margin-bottom: 16px;
+        }
+
+        .main-title {
+            color: white;
+            font-size: 58px;
+            font-weight: 700;
+        }
+
+        .banner {
+            width: 100%;
+            height: 74px;
+            padding: 39px 142px;
+            background: #A1E9FF;
+            border: 1px solid #000000;
+            border-radius: 4px;
+        }
+
+        .banner-text {
+            color: black;
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 42px;
+        }
+
+        .cards-container {
+            padding: 106px 140px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .card {
+            width: 100%;
+            height: 120px;
+            padding: 22px 24px;
+            border: 1px solid #2E312F;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .number-circle {
+            width: 64px;
+            height: 64px;
+            background: #FFC0E6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 600;
+            color: #2E312F;
+        }
+
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .card-title {
+            color: #2E312F;
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+        .card-description {
+            color: #757875;
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        .cta-section {
+            width: 100%;
+            padding: 39px 138px 129px;
+            background: #F6F6F6;
+        }
+
+        .cta-box {
+            width: 100%;
+            padding: 24px;
+            background: #0176D3;
+            border-radius: 4px;
+            color: #F6F6F6;
+        }
+
+        .cta-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .cta-text {
+            font-size: 18px;
+            font-weight: 400;
+        }
+    </style>
 </head>
-<body class="bg-gray-100 text-gray-900">
-  <header class="bg-blue-600 text-white p-4">
-    <h1 class="text-2xl font-bold">Welcome to My Optimized Page</h1>
-  </header>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">Te damos la bienvenida al</h1>
+            <h2 class="main-title">Playground del Bot Core</h2>
+        </header>
 
-  <main class="max-w-4xl mx-auto p-4">
-    <section class="mb-8">
-      <h2 class="text-xl font-semibold mb-2">Section 1</h2>
-      <p class="text-base">This is a paragraph with some content. Tailwind CSS makes styling easy and consistent across your project.</p>
-    </section>
-
-    <section class="mb-8">
-      <h2 class="text-xl font-semibold mb-2">Section 2</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        <div class="bg-white p-4 rounded shadow">
-          <h3 class="text-lg font-medium">Card 1</h3>
-          <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <div class="banner">
+            <p class="banner-text">Un lugar para experimentar con el chatbot y ayudarnos a hacerlo mejor</p>
         </div>
-        <div class="bg-white p-4 rounded shadow">
-          <h3 class="text-lg font-medium">Card 2</h3>
-          <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-        <div class="bg-white p-4 rounded shadow">
-          <h3 class="text-lg font-medium">Card 3</h3>
-          <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-      </div>
-    </section>
 
-    <section>
-      <h2 class="text-xl font-semibold mb-2">Section 3</h2>
-      <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Click Me</button>
-    </section>
-  </main>
+        <main class="cards-container">
+            <div class="card">
+                <div class="number-circle">1</div>
+                <div class="card-content">
+                    <h3 class="card-title">Prueba el bot</h3>
+                    <p class="card-description">Explora cómo responde y detecta qué funciona y qué no</p>
+                </div>
+            </div>
 
-  <footer class="bg-gray-800 text-white p-4 text-center">
-    <p>&copy; 2025 Optimized Page. All Rights Reserved.</p>
-  </footer>
+            <div class="card">
+                <div class="number-circle">2</div>
+                <div class="card-content">
+                    <h3 class="card-title">Analízalo</h3>
+                    <p class="card-description">Fijate si las conversaciones son claras y útiles</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="number-circle">3</div>
+                <div class="card-content">
+                    <h3 class="card-title">Da feedback</h3>
+                    <p class="card-description">Tu opinión nos ayuda a ajustar y mejorar cada detalle.</p>
+                </div>
+            </div>
+        </main>
+
+        <section class="cta-section">
+            <div class="cta-box">
+                <h2 class="cta-title">¡Interactúa con el bot ahora!</h2>
+                <p class="cta-text">Comparte tu experiencia y ayudanos a crear algo más útil para todos</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Zendesk Chatbot Widget -->
+    <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=6fb9dc32-179d-4d50-81df-15b953b85fec"></script>
 </body>
 </html>
