@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Política de seguridad para Zendesk -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'unsafe-inline' 'unsafe-eval' https://*.zdassets.com https://*.zendesk.com; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com">
     <title>Playground Bot Core</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,16 +15,38 @@
             font-family: 'Montserrat', sans-serif;
         }
 
-        /* Todos los estilos CSS anteriores se mantienen igual */
-        /* ... (el resto del CSS permanece idéntico) ... */
-        
-    </style>
-</head>
-<body>
-    <!-- Todo el contenido HTML anterior se mantiene igual -->
-    <!-- ... (el resto del HTML permanece idéntico) ... -->
+        /* Contenedor principal */
+        .container {
+            width: 1440px;
+            margin: 0 auto;
+            min-height: 947px;
+            position: relative;
+            background: white;
+            padding-bottom: 100px; /* Espacio para el widget */
+        }
 
-    <!-- Nuevo widget de Zendesk (actualizado) -->
-    <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=6fb9dc32-179d-4d50-81df-15b953b85fec"></script>
-</body>
-</html>
+        /* Header */
+        .header {
+            width: 100%;
+            height: 225px;
+            padding: 72px 141px 48px;
+            background: #002E7B;
+        }
+
+        .welcome-text {
+            color: white;
+            font-size: 32px;
+            font-weight: 400;
+            margin-bottom: 8px;
+        }
+
+        .main-title {
+            color: white;
+            font-size: 58px;
+            font-weight: 700;
+        }
+
+        /* Banner */
+        .banner {
+            width: 100%;
+            height: 74px
