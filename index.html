@@ -2,10 +2,7 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Meta CSP actualizada -->
     <meta
       http-equiv="Content-Security-Policy"
@@ -25,26 +22,26 @@
         font-family: 'Montserrat', sans-serif;
       }
 
-      /* Contenedor general (según Figma: width 1440, height 979, paddingBottom 12) */
+      /* Contenedor general (width 1440, height 979, paddingBottom 12) */
       .container {
         width: 1440px;
         height: 979px;
         margin: 0 auto;
-        background: #F8F8F8;
-        position: relative;
+        background: #f8f8f8;
+        /* Se elimina position: relative para evitar interferencias con elementos fijos */
         display: flex;
         flex-direction: column;
         gap: 1px;
         padding-bottom: 12px;
       }
 
-      /* MÓDULO 1: HEADER (compuesto de top-bar y main-header) */
+      /* MÓDULO 1: HEADER (top-bar + main-header) */
       .module-header {
         display: flex;
         flex-direction: column;
       }
 
-      /* Top-bar: altura 48px, padding-left 141px y padding-right 144px, background blanco */
+      /* Top-bar: altura 48px, padding-left 141px y padding-right 144px, fondo blanco */
       .top-bar {
         height: 48px;
         padding: 0 144px 0 141px;
@@ -83,7 +80,7 @@
       }
 
       /* MÓDULO 2: MENSAJE BETA
-         (Según Figma: height 100, padding-left/right 140, padding-top/bottom 23) */
+         (height 100, padding-left/right 140, padding-top/bottom 23) */
       .module-beta {
         height: 100px;
         padding: 23px 140px;
@@ -103,7 +100,7 @@
       }
 
       /* MÓDULO 3: TARJETAS (Cards)
-         (Según Figma: height 396, padding-left/right 141, padding-top/bottom 10, gap 10) */
+         (height 396, padding-left/right 141, padding-top/bottom 10, gap 10) */
       .module-cards {
         height: 396px;
         padding: 10px 141px;
@@ -114,7 +111,7 @@
         align-items: flex-start;
       }
 
-      /* Tarjetas: cada una tiene height 108, padding 16px (top/bottom) y 24px (left/right), borde y border-radius */
+      /* Tarjetas: cada una tiene height 108, padding 16px (vertical) y 24px (horizontal), borde y border-radius */
       .card-container {
         display: flex;
         flex-direction: column;
@@ -165,7 +162,7 @@
       }
 
       /* MÓDULO 4: CTA
-         (Según Figma: height 202, padding-top/bottom 16, padding-left 140 y padding-right 138, fondo blanco, gap 12) */
+         (height 202, padding-top/bottom 16, padding-left 140, padding-right 138, fondo blanco, gap 12) */
       .module-cta {
         height: 202px;
         padding: 16px 138px 16px 140px;
@@ -200,8 +197,9 @@
         line-height: 20px;
       }
 
-      /* Widget de Zendesk */
+      /* Aseguramos que el widget de Zendesk se posicione de forma fija en la pantalla */
       .zEWidget-launcher {
+        position: fixed !important;
         z-index: 9999 !important;
         right: 20px !important;
         bottom: 20px !important;
