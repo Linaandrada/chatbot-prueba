@@ -22,40 +22,38 @@
         font-family: 'Montserrat', sans-serif;
       }
 
-      /* Contenedor general (width 1440, height 979, paddingBottom 12) */
+      /* Contenedor general */
       .container {
-        width: 1440px;
-        height: 979px;
+        max-width: 1440px;
+        min-height: 979px;
         margin: 0 auto;
         background: #f8f8f8;
-        /* Se elimina position: relative para evitar interferencias con elementos fijos */
         display: flex;
         flex-direction: column;
         gap: 1px;
         padding-bottom: 12px;
       }
 
-      /* MÓDULO 1: HEADER (top-bar + main-header) */
+      /* ───────── MÓDULO 1: HEADER ───────── */
       .module-header {
         display: flex;
         flex-direction: column;
       }
-
-      /* Top-bar: altura 48px, padding-left 141px y padding-right 144px, fondo blanco */
+      /* Top-bar: altura 64px, fondo #4D5363, borde y tipografía ajustada */
       .top-bar {
-        height: 48px;
+        height: 64px;
         padding: 0 144px 0 141px;
-        background: white;
+        background: #4d5363;
+        border: 1px solid #2e312f;
         display: flex;
         align-items: center;
         font-size: 14px;
-        color: #2e312f;
-        font-weight: 400;
+        color: white;
+        font-weight: 500;
       }
-
-      /* Main header: altura 220px, padding 64px (top/bottom) y 141px (left/right), fondo #4D5363 */
+      /* Main header: altura 201px, mismo padding y fondo */
       .main-header {
-        height: 220px;
+        height: 201px;
         padding: 64px 141px;
         background: #4d5363;
         display: flex;
@@ -64,14 +62,12 @@
         align-items: flex-start;
         gap: 12px;
       }
-
       .main-title {
         font-size: 58px;
         font-weight: 700;
         line-height: 48px;
         color: white;
       }
-
       .subtitle {
         font-size: 32px;
         font-weight: 600;
@@ -79,28 +75,24 @@
         color: white;
       }
 
-      /* MÓDULO 2: MENSAJE BETA
-         (height 100, padding-left/right 140, padding-top/bottom 23) */
+      /* ───────── MÓDULO 2: MENSAJE BETA ───────── */
       .module-beta {
         height: 100px;
         padding: 23px 140px;
         display: flex;
-        align-items: center;
+        align-items: flex-end;
       }
-
       .beta-message {
-        font-size: 24px;
+        font-size: 22px;
         font-weight: 600;
         line-height: 30px;
         color: #2e312f;
       }
-
       .beta-message .highlight {
         color: #0176d3;
       }
 
-      /* MÓDULO 3: TARJETAS (Cards)
-         (height 396, padding-left/right 141, padding-top/bottom 10, gap 10) */
+      /* ───────── MÓDULO 3: TARJETAS ───────── */
       .module-cards {
         height: 396px;
         padding: 10px 141px;
@@ -110,15 +102,12 @@
         justify-content: center;
         align-items: flex-start;
       }
-
-      /* Tarjetas: cada una tiene height 108, padding 16px (vertical) y 24px (horizontal), borde y border-radius */
       .card-container {
         display: flex;
         flex-direction: column;
         gap: 12px;
         width: 100%;
       }
-
       .instruction-card {
         height: 108px;
         padding: 16px 24px;
@@ -129,7 +118,6 @@
         align-items: center;
         gap: 16px;
       }
-
       .number-circle {
         width: 64px;
         height: 64px;
@@ -143,26 +131,22 @@
         font-weight: 600;
         flex-shrink: 0;
       }
-
       .card-content {
         flex-grow: 1;
       }
-
       .card-title {
         font-size: 16px;
         font-weight: 400;
         color: #2e312f;
         margin-bottom: 2px;
       }
-
       .card-description {
         font-size: 14px;
         color: #757875;
         line-height: 18px;
       }
 
-      /* MÓDULO 4: CTA
-         (height 202, padding-top/bottom 16, padding-left 140, padding-right 138, fondo blanco, gap 12) */
+      /* ───────── MÓDULO 4: CTA ───────── */
       .module-cta {
         height: 202px;
         padding: 16px 138px 16px 140px;
@@ -172,7 +156,6 @@
         justify-content: flex-start;
         gap: 12px;
       }
-
       .cta-box {
         width: 1150px;
         height: 96px;
@@ -182,14 +165,12 @@
         flex-direction: column;
         justify-content: center;
       }
-
       .cta-title {
         font-size: 24px;
         font-weight: 600;
         color: #2e312f;
         margin-bottom: 12px;
       }
-
       .cta-text {
         font-size: 18px;
         font-weight: 400;
@@ -197,7 +178,7 @@
         line-height: 20px;
       }
 
-      /* Aseguramos que el widget de Zendesk se posicione de forma fija en la pantalla */
+      /* ───────── Widget de Zendesk ───────── */
       .zEWidget-launcher {
         position: fixed !important;
         z-index: 9999 !important;
@@ -208,14 +189,14 @@
   </head>
   <body>
     <div class="container">
-      <!-- MÓDULO 1: HEADER (top-bar + main-header) -->
+      <!-- MÓDULO 1: HEADER -->
       <div class="module-header">
         <div class="top-bar">
-          Poné a prueba el bot que lo quiere todo... menos trabajar los lunes
+          Poné a prueba el bot que lo quiere todo... menos trabajar los lunes 🤖
         </div>
         <header class="main-header">
           <h1 class="main-title">Playground Bot Core</h1>
-          <p class="subtitle">Un espacio para probar, explorar y mejorar juntos</p>
+          <p class="subtitle">Un espacio para probar, explorar y mejorar</p>
         </header>
       </div>
 
@@ -236,24 +217,20 @@
             <div class="card-content">
               <h3 class="card-title">Tocá, explorá, reflexioná</h3>
               <p class="card-description">
-                Explora cómo responde. ¿Encaja? ¿Desentona? Tu curiosidad es el mejor test de
-                estrés que podemos pedir
+                Explora cómo responde. ¿Encaja? ¿Desentona? Tu curiosidad es el mejor test de estrés que podemos pedir
               </p>
             </div>
           </div>
-
           <!-- Tarjeta 2 -->
           <div class="instruction-card">
             <div class="number-circle">2</div>
             <div class="card-content">
               <h3 class="card-title">Activá el modo detective</h3>
               <p class="card-description">
-                ¿Algo no suena bien? ¿Faltan opciones? ¿Te dejó en visto? Márcalo, dibújalo, hazle un
-                meme si hace falta
+                ¿Algo no suena bien? ¿Faltan opciones? ¿Te dejó en visto? Márcalo, dibújalo, hazle un meme si hace falta
               </p>
             </div>
           </div>
-
           <!-- Tarjeta 3 -->
           <div class="instruction-card">
             <div class="number-circle">3</div>
@@ -262,8 +239,7 @@
                 Si el bot pudiera, te mandaría unas mediaslunas 🥐
               </h3>
               <p class="card-description">
-                Cada comentario que nos dejes lo hace un poquito más humano (pero no demasiado,
-                tranqui)
+                Cada comentario que nos dejes lo hace un poquito más humano (pero no demasiado, tranqui)
               </p>
             </div>
           </div>
@@ -281,7 +257,7 @@
       </section>
     </div>
 
-    <!-- Script de Zendesk (conservado del original) -->
+    <!-- Script de Zendesk (para el chatbot) -->
     <script
       id="ze-snippet"
       src="https://static.zdassets.com/ekr/snippet.js?key=6fb9dc32-179d-4d50-81df-15b953b85fec"
