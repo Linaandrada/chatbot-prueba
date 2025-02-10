@@ -1,200 +1,292 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
     <!-- Meta CSP actualizada -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*; img-src 'self' data: https://*; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.zdassets.com https://zendesk-eu.my.sentry.io https://api.smooch.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://* wss://api.smooch.io; frame-src 'self' https://*;">
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self' https://*; img-src 'self' data: https://*; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.zdassets.com https://zendesk-eu.my.sentry.io https://api.smooch.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://* wss://api.smooch.io; frame-src 'self' https://*;"
+    />
     <title>Playground Bot Core</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
-        }
+      /* Reset básico */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Montserrat', sans-serif;
+      }
 
-        .container {
-            width: 1440px;
-            margin: 0 auto;
-            background: #F8F8F8;
-            min-height: 100vh;
-            position: relative;
-        }
+      /* Contenedor general (según Figma: width 1440, height 979, paddingBottom 12) */
+      .container {
+        width: 1440px;
+        height: 979px;
+        margin: 0 auto;
+        background: #F8F8F8;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+        padding-bottom: 12px;
+      }
 
-        /* Nuevo Header */
-        .main-header {
-            background: #4D5363;
-            padding: 64px 141px;
-            color: white;
-        }
+      /* MÓDULO 1: HEADER (compuesto de top-bar y main-header) */
+      .module-header {
+        display: flex;
+        flex-direction: column;
+      }
 
-        .main-title {
-            font-size: 58px;
-            font-weight: 700;
-            line-height: 48px;
-            margin-bottom: 12px;
-        }
+      /* Top-bar: altura 48px, padding-left 141px y padding-right 144px, background blanco */
+      .top-bar {
+        height: 48px;
+        padding: 0 144px 0 141px;
+        background: white;
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        color: #2e312f;
+        font-weight: 400;
+      }
 
-        .subtitle {
-            font-size: 32px;
-            font-weight: 600;
-            line-height: 48px;
-        }
+      /* Main header: altura 220px, padding 64px (top/bottom) y 141px (left/right), fondo #4D5363 */
+      .main-header {
+        height: 220px;
+        padding: 64px 141px;
+        background: #4d5363;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+        gap: 12px;
+      }
 
-        /* Sección principal */
-        .content-section {
-            padding: 292px 140px 0;
-        }
+      .main-title {
+        font-size: 58px;
+        font-weight: 700;
+        line-height: 48px;
+        color: white;
+      }
 
-        .beta-message {
-            color: #2E312F;
-            font-size: 24px;
-            font-weight: 600;
-            line-height: 30px;
-            margin-bottom: 105px;
-        }
+      .subtitle {
+        font-size: 32px;
+        font-weight: 600;
+        line-height: 48px;
+        color: white;
+      }
 
-        .highlight {
-            color: #0176D3;
-        }
+      /* MÓDULO 2: MENSAJE BETA
+         (Según Figma: height 100, padding-left/right 140, padding-top/bottom 23) */
+      .module-beta {
+        height: 100px;
+        padding: 23px 140px;
+        display: flex;
+        align-items: center;
+      }
 
-        /* Tarjetas nuevas */
-        .card-container {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-bottom: 179px;
-        }
+      .beta-message {
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 30px;
+        color: #2e312f;
+      }
 
-        .instruction-card {
-            background: white;
-            border: 1px solid #DADADA;
-            border-radius: 16px;
-            padding: 16px 24px;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
+      .beta-message .highlight {
+        color: #0176d3;
+      }
 
-        .number-circle {
-            width: 64px;
-            height: 64px;
-            background: #1B96FF;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #2E312F;
-            font-size: 16px;
-            font-weight: 600;
-            flex-shrink: 0;
-        }
+      /* MÓDULO 3: TARJETAS (Cards)
+         (Según Figma: height 396, padding-left/right 141, padding-top/bottom 10, gap 10) */
+      .module-cards {
+        height: 396px;
+        padding: 10px 141px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+        align-items: flex-start;
+      }
 
-        .card-content {
-            flex-grow: 1;
-        }
+      /* Tarjetas: cada una tiene height 108, padding 16px (top/bottom) y 24px (left/right), borde y border-radius */
+      .card-container {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+      }
 
-        .card-title {
-            font-size: 16px;
-            font-weight: 400;
-            color: #2E312F;
-            margin-bottom: 2px;
-        }
+      .instruction-card {
+        height: 108px;
+        padding: 16px 24px;
+        background: white;
+        border: 1px solid #dadada;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
 
-        .card-description {
-            font-size: 14px;
-            color: #757875;
-            line-height: 18px;
-        }
+      .number-circle {
+        width: 64px;
+        height: 64px;
+        background: #1b96ff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #2e312f;
+        font-size: 16px;
+        font-weight: 600;
+        flex-shrink: 0;
+      }
 
-        /* CTA Section */
-        .cta-section {
-            background: white;
-            padding: 16px 140px;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-        }
+      .card-content {
+        flex-grow: 1;
+      }
 
-        .cta-box {
-            background: white;
-            padding: 24px 0;
-        }
+      .card-title {
+        font-size: 16px;
+        font-weight: 400;
+        color: #2e312f;
+        margin-bottom: 2px;
+      }
 
-        .cta-title {
-            font-size: 24px;
-            font-weight: 600;
-            color: #2E312F;
-            margin-bottom: 12px;
-        }
+      .card-description {
+        font-size: 14px;
+        color: #757875;
+        line-height: 18px;
+      }
 
-        .cta-text {
-            font-size: 18px;
-            color: #2E312F;
-        }
+      /* MÓDULO 4: CTA
+         (Según Figma: height 202, padding-top/bottom 16, padding-left 140 y padding-right 138, fondo blanco, gap 12) */
+      .module-cta {
+        height: 202px;
+        padding: 16px 138px 16px 140px;
+        background: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 12px;
+      }
 
-        /* Widget de Zendesk - Posición fija */
-        .zEWidget-launcher {
-            z-index: 9999 !important;
-            right: 20px !important;
-            bottom: 20px !important;
-        }
+      .cta-box {
+        width: 1150px;
+        height: 96px;
+        padding: 24px 0;
+        border-radius: 4px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .cta-title {
+        font-size: 24px;
+        font-weight: 600;
+        color: #2e312f;
+        margin-bottom: 12px;
+      }
+
+      .cta-text {
+        font-size: 18px;
+        font-weight: 400;
+        color: #2e312f;
+        line-height: 20px;
+      }
+
+      /* Widget de Zendesk */
+      .zEWidget-launcher {
+        z-index: 9999 !important;
+        right: 20px !important;
+        bottom: 20px !important;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <header class="main-header">
-            <h1 class="main-title">Playground Bot Core</h1>
-            <p class="subtitle">Un espacio para probar, explorar y mejorar juntos</p>
-        </header>
-
-        <div class="content-section">
-            <div class="beta-message">
-                Esto no es un bot cualquiera: está en beta y necesita tu ojo crítico<br>
-                <span class="highlight">¿Lo ayudás a mejorar?</span>
-            </div>
-
-            <div class="card-container">
-                <!-- Tarjeta 1 -->
-                <div class="instruction-card">
-                    <div class="number-circle">1</div>
-                    <div class="card-content">
-                        <h3 class="card-title">Tocá, explorá, reflexioná</h3>
-                        <p class="card-description">Explora cómo responde. ¿Encaja? ¿Desentona? Tu curiosidad es el mejor test de estrés que podemos pedir</p>
-                    </div>
-                </div>
-
-                <!-- Tarjeta 2 -->
-                <div class="instruction-card">
-                    <div class="number-circle">2</div>
-                    <div class="card-content">
-                        <h3 class="card-title">Activá el modo detective</h3>
-                        <p class="card-description">¿Algo no suena bien? ¿Faltan opciones? ¿Te dejó en visto? Márcalo, dibújalo, hazle un meme si hace falta</p>
-                    </div>
-                </div>
-
-                <!-- Tarjeta 3 -->
-                <div class="instruction-card">
-                    <div class="number-circle">3</div>
-                    <div class="card-content">
-                        <h3 class="card-title">Si el bot pudiera, te mandaría unas mediaslunas 🥐</h3>
-                        <p class="card-description">Cada comentario que nos dejes lo hace un poquito más humano (pero no demasiado, tranqui)</p>
-                    </div>
-                </div>
-            </div>
+      <!-- MÓDULO 1: HEADER (top-bar + main-header) -->
+      <div class="module-header">
+        <div class="top-bar">
+          Poné a prueba el bot que lo quiere todo... menos trabajar los lunes
         </div>
+        <header class="main-header">
+          <h1 class="main-title">Playground Bot Core</h1>
+          <p class="subtitle">Un espacio para probar, explorar y mejorar juntos</p>
+        </header>
+      </div>
 
-        <section class="cta-section">
-            <div class="cta-box">
-                <h2 class="cta-title">¡Interactúa con el bot ahora! 👉</h2>
-                <p class="cta-text">Todo lo que descubrís suma para el futuro del bot</p>
+      <!-- MÓDULO 2: MENSAJE BETA -->
+      <section class="module-beta">
+        <p class="beta-message">
+          Esto no es un bot cualquiera: está en beta y necesita tu ojo crítico<br />
+          <span class="highlight">¿Lo ayudás a mejorar?</span>
+        </p>
+      </section>
+
+      <!-- MÓDULO 3: TARJETAS -->
+      <section class="module-cards">
+        <div class="card-container">
+          <!-- Tarjeta 1 -->
+          <div class="instruction-card">
+            <div class="number-circle">1</div>
+            <div class="card-content">
+              <h3 class="card-title">Tocá, explorá, reflexioná</h3>
+              <p class="card-description">
+                Explora cómo responde. ¿Encaja? ¿Desentona? Tu curiosidad es el mejor test de
+                estrés que podemos pedir
+              </p>
             </div>
-        </section>
+          </div>
+
+          <!-- Tarjeta 2 -->
+          <div class="instruction-card">
+            <div class="number-circle">2</div>
+            <div class="card-content">
+              <h3 class="card-title">Activá el modo detective</h3>
+              <p class="card-description">
+                ¿Algo no suena bien? ¿Faltan opciones? ¿Te dejó en visto? Márcalo, dibújalo, hazle un
+                meme si hace falta
+              </p>
+            </div>
+          </div>
+
+          <!-- Tarjeta 3 -->
+          <div class="instruction-card">
+            <div class="number-circle">3</div>
+            <div class="card-content">
+              <h3 class="card-title">
+                Si el bot pudiera, te mandaría unas mediaslunas 🥐
+              </h3>
+              <p class="card-description">
+                Cada comentario que nos dejes lo hace un poquito más humano (pero no demasiado,
+                tranqui)
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MÓDULO 4: CTA -->
+      <section class="module-cta">
+        <div class="cta-box">
+          <h2 class="cta-title">¡Interactúa con el bot ahora! 👉</h2>
+          <p class="cta-text">
+            Todo lo que descubrís suma para el futuro del bot
+          </p>
+        </div>
+      </section>
     </div>
 
     <!-- Script de Zendesk (conservado del original) -->
-    <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=6fb9dc32-179d-4d50-81df-15b953b85fec"></script>
-</body>
+    <script
+      id="ze-snippet"
+      src="https://static.zdassets.com/ekr/snippet.js?key=6fb9dc32-179d-4d50-81df-15b953b85fec"
+    ></script>
+  </body>
 </html>
