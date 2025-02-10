@@ -3,16 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- CSP modificada para permitir correctamente el widget -->
+    <!-- Meta CSP actualizada -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self' https:;
-              img-src 'self' data: https:;
-              script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.zdassets.com https://zendesk-eu.my.sentry.io https://api.smooch.io https://cdn.smooch.io;
-              style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-              font-src 'self' https://fonts.gstatic.com;
-              connect-src 'self' https: wss://api.smooch.io wss://*.smooch.io;
-              frame-src 'self' https:;"
+      content="default-src 'self' https://*; img-src 'self' data: https://*; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.zdassets.com https://zendesk-eu.my.sentry.io https://api.smooch.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://* wss://api.smooch.io; frame-src 'self' https://*;"
     />
     <title>Playground Bot Core</title>
     <link
@@ -20,7 +14,7 @@
       rel="stylesheet"
     />
     <style>
-      /* Todos los estilos UI del segundo HTML se mantienen igual */
+      /* Reset básico */
       * {
         margin: 0;
         padding: 0;
@@ -28,36 +22,40 @@
         font-family: 'Montserrat', sans-serif;
       }
 
+      /* Contenedor general (width 1440, height 979, paddingBottom 12) */
       .container {
         width: 1440px;
         height: 979px;
         margin: 0 auto;
         background: #f8f8f8;
+        /* Se elimina position: relative para evitar interferencias con elementos fijos */
         display: flex;
         flex-direction: column;
         gap: 1px;
         padding-bottom: 12px;
       }
 
+      /* MÓDULO 1: HEADER (top-bar + main-header) */
       .module-header {
         display: flex;
         flex-direction: column;
       }
 
+      /* Top-bar: altura 48px, padding-left 141px y padding-right 144px, fondo blanco */
       .top-bar {
-        height: 64px;
+        height: 48px;
         padding: 0 144px 0 141px;
-        background: #4d5363;
-        border: 1px solid #2e312f;
+        background: white;
         display: flex;
         align-items: center;
         font-size: 14px;
-        color: white;
-        font-weight: 500;
+        color: #2e312f;
+        font-weight: 400;
       }
 
+      /* Main header: altura 220px, padding 64px (top/bottom) y 141px (left/right), fondo #4D5363 */
       .main-header {
-        height: 201px;
+        height: 220px;
         padding: 64px 141px;
         background: #4d5363;
         display: flex;
@@ -81,15 +79,17 @@
         color: white;
       }
 
+      /* MÓDULO 2: MENSAJE BETA
+         (height 100, padding-left/right 140, padding-top/bottom 23) */
       .module-beta {
         height: 100px;
         padding: 23px 140px;
         display: flex;
-        align-items: flex-end;
+        align-items: center;
       }
 
       .beta-message {
-        font-size: 22px;
+        font-size: 24px;
         font-weight: 600;
         line-height: 30px;
         color: #2e312f;
@@ -99,6 +99,8 @@
         color: #0176d3;
       }
 
+      /* MÓDULO 3: TARJETAS (Cards)
+         (height 396, padding-left/right 141, padding-top/bottom 10, gap 10) */
       .module-cards {
         height: 396px;
         padding: 10px 141px;
@@ -109,6 +111,7 @@
         align-items: flex-start;
       }
 
+      /* Tarjetas: cada una tiene height 108, padding 16px (vertical) y 24px (horizontal), borde y border-radius */
       .card-container {
         display: flex;
         flex-direction: column;
@@ -158,6 +161,8 @@
         line-height: 18px;
       }
 
+      /* MÓDULO 4: CTA
+         (height 202, padding-top/bottom 16, padding-left 140, padding-right 138, fondo blanco, gap 12) */
       .module-cta {
         height: 202px;
         padding: 16px 138px 16px 140px;
@@ -192,22 +197,21 @@
         line-height: 20px;
       }
 
-      /* Aseguramos que el widget no tenga interferencias */
+      /* Aseguramos que el widget de Zendesk se posicione de forma fija en la pantalla */
       .zEWidget-launcher {
         position: fixed !important;
         z-index: 9999 !important;
         right: 20px !important;
         bottom: 20px !important;
-        transform: none !important;
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <!-- Módulos iguales al segundo HTML -->
+      <!-- MÓDULO 1: HEADER (top-bar + main-header) -->
       <div class="module-header">
         <div class="top-bar">
-          Poné a prueba el bot que lo quiere todo... menos trabajar los lunes 🤖
+          Poné a prueba el bot que lo quiere todo... menos trabajar los lunes
         </div>
         <header class="main-header">
           <h1 class="main-title">Playground Bot Core</h1>
@@ -215,6 +219,7 @@
         </header>
       </div>
 
+      <!-- MÓDULO 2: MENSAJE BETA -->
       <section class="module-beta">
         <p class="beta-message">
           Esto no es un bot cualquiera: está en beta y necesita tu ojo crítico<br />
@@ -222,8 +227,10 @@
         </p>
       </section>
 
+      <!-- MÓDULO 3: TARJETAS -->
       <section class="module-cards">
         <div class="card-container">
+          <!-- Tarjeta 1 -->
           <div class="instruction-card">
             <div class="number-circle">1</div>
             <div class="card-content">
@@ -235,6 +242,7 @@
             </div>
           </div>
 
+          <!-- Tarjeta 2 -->
           <div class="instruction-card">
             <div class="number-circle">2</div>
             <div class="card-content">
@@ -246,6 +254,7 @@
             </div>
           </div>
 
+          <!-- Tarjeta 3 -->
           <div class="instruction-card">
             <div class="number-circle">3</div>
             <div class="card-content">
@@ -261,6 +270,7 @@
         </div>
       </section>
 
+      <!-- MÓDULO 4: CTA -->
       <section class="module-cta">
         <div class="cta-box">
           <h2 class="cta-title">¡Interactúa con el bot ahora! 👉</h2>
@@ -271,10 +281,9 @@
       </section>
     </div>
 
-    <!-- Script de Zendesk con carga asíncrona -->
+    <!-- Script de Zendesk (conservado del original) -->
     <script
       id="ze-snippet"
-      async
       src="https://static.zdassets.com/ekr/snippet.js?key=6fb9dc32-179d-4d50-81df-15b953b85fec"
     ></script>
   </body>
