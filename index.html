@@ -3,16 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Configuración de seguridad actualizada para Zendesk -->
-    <meta http-equiv="Content-Security-Policy" content="
-        default-src 'self' https://*;
-        img-src 'self' data: https://*;
-        script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.zdassets.com https://zendesk-eu.my.sentry.io;
-        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-        font-src 'self' https://fonts.gstatic.com;
-        connect-src 'self' https://*;
-        frame-src 'self' https://*;
-    ">
+    <!-- Meta CSP actualizada -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*; img-src 'self' data: https://*; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.zdassets.com https://zendesk-eu.my.sentry.io https://api.smooch.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://* wss://api.smooch.io; frame-src 'self' https://*;">
     <title>Playground Bot Core</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -22,7 +14,6 @@
             box-sizing: border-box;
             font-family: 'Montserrat', sans-serif;
         }
-
         /* Contenedor principal */
         .container {
             width: 1440px;
@@ -31,43 +22,36 @@
             min-height: 100vh;
             padding-bottom: 100px;
         }
-
         /* Encabezado azul */
         .header {
             background: #002E7B;
             padding: 72px 141px 48px;
             color: white;
         }
-
         .welcome-text {
             font-size: 32px;
             margin-bottom: 8px;
             font-weight: 400;
         }
-
         .main-title {
             font-size: 58px;
             font-weight: 700;
         }
-
         /* Banner celeste */
         .banner {
             background: #A1E9FF;
             padding: 32px 142px;
             border-bottom: 1px solid #000;
         }
-
         .banner-text {
             font-size: 18px;
             font-weight: 500;
             color: #000;
         }
-
         /* Tarjetas de instrucciones */
         .cards-container {
             padding: 50px 140px;
         }
-
         .card {
             border: 1px solid #2E312F;
             border-radius: 4px;
@@ -77,7 +61,6 @@
             align-items: center;
             gap: 16px;
         }
-
         .number-circle {
             width: 64px;
             height: 64px;
@@ -89,36 +72,30 @@
             font-size: 16px;
             font-weight: 600;
         }
-
         .card-title {
             font-size: 16px;
             color: #2E312F;
             margin-bottom: 4px;
         }
-
         .card-description {
             font-size: 14px;
             color: #757875;
         }
-
         /* Sección final */
         .cta-section {
             background: #F6F6F6;
             padding: 40px 138px;
         }
-
         .cta-box {
             background: #0176D3;
             padding: 24px;
             border-radius: 4px;
             color: white;
         }
-
         .cta-title {
             font-size: 24px;
             margin-bottom: 8px;
         }
-
         /* Widget de Zendesk - Posición fija */
         .zEWidget-launcher {
             z-index: 9999 !important;
@@ -175,7 +152,7 @@
         </section>
     </div>
 
-    <!-- Script de Zendesk - Versión corregida -->
+    <!-- Script de Zendesk -->
     <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=6fb9dc32-179d-4d50-81df-15b953b85fec"></script>
 </body>
 </html>
