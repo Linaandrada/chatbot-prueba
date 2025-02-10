@@ -14,88 +14,127 @@
             box-sizing: border-box;
             font-family: 'Montserrat', sans-serif;
         }
-        /* Contenedor principal */
+
         .container {
             width: 1440px;
             margin: 0 auto;
-            background: white;
+            background: #F8F8F8;
             min-height: 100vh;
-            padding-bottom: 100px;
+            position: relative;
         }
-        /* Encabezado azul */
-        .header {
-            background: #002E7B;
-            padding: 72px 141px 48px;
+
+        /* Nuevo Header */
+        .main-header {
+            background: #4D5363;
+            padding: 64px 141px;
             color: white;
         }
-        .welcome-text {
-            font-size: 32px;
-            margin-bottom: 8px;
-            font-weight: 400;
-        }
+
         .main-title {
             font-size: 58px;
             font-weight: 700;
+            line-height: 48px;
+            margin-bottom: 12px;
         }
-        /* Banner celeste */
-        .banner {
-            background: #A1E9FF;
-            padding: 32px 142px;
-            border-bottom: 1px solid #000;
+
+        .subtitle {
+            font-size: 32px;
+            font-weight: 600;
+            line-height: 48px;
         }
-        .banner-text {
-            font-size: 18px;
-            font-weight: 500;
-            color: #000;
+
+        /* Sección principal */
+        .content-section {
+            padding: 292px 140px 0;
         }
-        /* Tarjetas de instrucciones */
-        .cards-container {
-            padding: 50px 140px;
+
+        .beta-message {
+            color: #2E312F;
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 30px;
+            margin-bottom: 105px;
         }
-        .card {
-            border: 1px solid #2E312F;
-            border-radius: 4px;
+
+        .highlight {
+            color: #0176D3;
+        }
+
+        /* Tarjetas nuevas */
+        .card-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 179px;
+        }
+
+        .instruction-card {
+            background: white;
+            border: 1px solid #DADADA;
+            border-radius: 16px;
             padding: 16px 24px;
-            margin-bottom: 16px;
             display: flex;
             align-items: center;
             gap: 16px;
         }
+
         .number-circle {
             width: 64px;
             height: 64px;
-            background: #FFC0E6;
+            background: #1B96FF;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            color: #2E312F;
             font-size: 16px;
             font-weight: 600;
+            flex-shrink: 0;
         }
+
+        .card-content {
+            flex-grow: 1;
+        }
+
         .card-title {
             font-size: 16px;
+            font-weight: 400;
             color: #2E312F;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
+
         .card-description {
             font-size: 14px;
             color: #757875;
+            line-height: 18px;
         }
-        /* Sección final */
+
+        /* CTA Section */
         .cta-section {
-            background: #F6F6F6;
-            padding: 40px 138px;
+            background: white;
+            padding: 16px 140px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
         }
+
         .cta-box {
-            background: #0176D3;
-            padding: 24px;
-            border-radius: 4px;
-            color: white;
+            background: white;
+            padding: 24px 0;
         }
+
         .cta-title {
             font-size: 24px;
-            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2E312F;
+            margin-bottom: 12px;
         }
+
+        .cta-text {
+            font-size: 18px;
+            color: #2E312F;
+        }
+
         /* Widget de Zendesk - Posición fija */
         .zEWidget-launcher {
             z-index: 9999 !important;
@@ -106,53 +145,56 @@
 </head>
 <body>
     <div class="container">
-        <header class="header">
-            <p class="welcome-text">¡Te damos la bienvenida!</p>
+        <header class="main-header">
             <h1 class="main-title">Playground Bot Core</h1>
+            <p class="subtitle">Un espacio para probar, explorar y mejorar juntos</p>
         </header>
 
-        <div class="banner">
-            <p class="banner-text">Este es un espacio para experimentar con el chatbot y ayudarnos a hacerlo mejor</p>
+        <div class="content-section">
+            <div class="beta-message">
+                Esto no es un bot cualquiera: está en beta y necesita tu ojo crítico<br>
+                <span class="highlight">¿Lo ayudás a mejorar?</span>
+            </div>
+
+            <div class="card-container">
+                <!-- Tarjeta 1 -->
+                <div class="instruction-card">
+                    <div class="number-circle">1</div>
+                    <div class="card-content">
+                        <h3 class="card-title">Tocá, explorá, reflexioná</h3>
+                        <p class="card-description">Explora cómo responde. ¿Encaja? ¿Desentona? Tu curiosidad es el mejor test de estrés que podemos pedir</p>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2 -->
+                <div class="instruction-card">
+                    <div class="number-circle">2</div>
+                    <div class="card-content">
+                        <h3 class="card-title">Activá el modo detective</h3>
+                        <p class="card-description">¿Algo no suena bien? ¿Faltan opciones? ¿Te dejó en visto? Márcalo, dibújalo, hazle un meme si hace falta</p>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 3 -->
+                <div class="instruction-card">
+                    <div class="number-circle">3</div>
+                    <div class="card-content">
+                        <h3 class="card-title">Si el bot pudiera, te mandaría unas mediaslunas 🥐</h3>
+                        <p class="card-description">Cada comentario que nos dejes lo hace un poquito más humano (pero no demasiado, tranqui)</p>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <main class="cards-container">
-            <!-- Tarjeta 1 -->
-            <div class="card">
-                <div class="number-circle">1</div>
-                <div>
-                    <h3 class="card-title">Prueba el bot</h3>
-                    <p class="card-description">Explora cómo responde y detecta qué funciona y qué no</p>
-                </div>
-            </div>
-
-            <!-- Tarjeta 2 -->
-            <div class="card">
-                <div class="number-circle">2</div>
-                <div>
-                    <h3 class="card-title">Analízalo</h3>
-                    <p class="card-description">Fíjate si las conversaciones son claras y útiles</p>
-                </div>
-            </div>
-
-            <!-- Tarjeta 3 -->
-            <div class="card">
-                <div class="number-circle">3</div>
-                <div>
-                    <h3 class="card-title">Da feedback</h3>
-                    <p class="card-description">Tu opinión nos ayuda a ajustar y mejorar cada detalle</p>
-                </div>
-            </div>
-        </main>
 
         <section class="cta-section">
             <div class="cta-box">
-                <h2 class="cta-title">¡Interactúa con el bot ahora!</h2>
-                <p>Comparte tu experiencia y ayúdanos a crear algo más útil para todos</p>
+                <h2 class="cta-title">¡Interactúa con el bot ahora! 👉</h2>
+                <p class="cta-text">Todo lo que descubrís suma para el futuro del bot</p>
             </div>
         </section>
     </div>
 
-    <!-- Script de Zendesk -->
+    <!-- Script de Zendesk (conservado del original) -->
     <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=6fb9dc32-179d-4d50-81df-15b953b85fec"></script>
 </body>
 </html>
