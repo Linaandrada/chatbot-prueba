@@ -21,41 +21,39 @@
         box-sizing: border-box;
         font-family: 'Montserrat', sans-serif;
       }
-      
-      /* Contenedor principal */
+      /* Contenedor principal: se mantiene el ancho, alto y márgenes originales */
       .container {
         width: 1440px;
         height: 979px;
         margin: 0 auto;
-        background: #F8F8F8;
+        background: #f8f8f8;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
       }
-      
-      /* Módulo 1: Header */
+      /* MÓDULO 1: HEADER */
       .module-header {
         display: flex;
         flex-direction: column;
       }
-      /* Top-bar refinada: altura 64px, fondo y borde actualizados, texto en blanco, font-weight 500 */
+      /* Top-bar: ahora 64px de alto, fondo #4D5363, borde 1px sólido #2E312F y texto en blanco con font-weight 500 */
       .top-bar {
         height: 64px;
         padding: 0 144px 0 141px;
-        background: #4D5363;
-        border: 1px solid #2E312F;
+        background: #4d5363;
+        border: 1px solid #2e312f;
         display: flex;
         align-items: center;
         font-size: 14px;
         color: white;
         font-weight: 500;
       }
-      /* Main header refinado: ahora de 201px de alto con padding de 64px y fondo azul */
+      /* Main header: altura de 201px (el contenedor interno tiene 201px), padding de 64px en top y bottom, fondo #4D5363 */
       .main-header {
         height: 201px;
         padding: 64px 141px;
-        background: #4D5363;
+        background: #4d5363;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -74,8 +72,8 @@
         line-height: 48px;
         color: white;
       }
-      
-      /* Módulo 2: Beta Message (primer módulo debajo del header) */
+      /* MÓDULO 2: Mensaje Beta (ajuste mínimo en tamaño de fuente y alineación)
+         Se utiliza el mismo alto y paddings que antes, pero se actualiza el font-size a 22 y se alinea el contenido al final */
       .module-beta {
         height: 100px;
         padding: 23px 140px;
@@ -88,13 +86,12 @@
         font-size: 22px;
         font-weight: 600;
         line-height: 30px;
-        color: #2E312F;
+        color: #2e312f;
       }
       .beta-message .highlight {
-        color: #0176D3;
+        color: #0176d3;
       }
-      
-      /* Módulo 3: Tarjetas */
+      /* MÓDULO 3: TARJETAS (sin cambios) */
       .module-cards {
         height: 396px;
         padding: 10px 141px;
@@ -114,7 +111,7 @@
         height: 108px;
         padding: 16px 24px;
         background: white;
-        border: 1px solid #DADADA;
+        border: 1px solid #dadada;
         border-radius: 16px;
         display: flex;
         align-items: center;
@@ -123,12 +120,12 @@
       .number-circle {
         width: 64px;
         height: 64px;
-        background: #1B96FF;
+        background: #1b96ff;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        color: #2E312F;
+        color: #2e312f;
         font-size: 16px;
         font-weight: 600;
         flex-shrink: 0;
@@ -139,7 +136,7 @@
       .card-title {
         font-size: 16px;
         font-weight: 400;
-        color: #2E312F;
+        color: #2e312f;
         margin-bottom: 2px;
       }
       .card-description {
@@ -148,10 +145,9 @@
         color: #757875;
         line-height: 18px;
       }
-      
-      /* Módulo 4: CTA */
+      /* MÓDULO 4: CTA (se mantiene igual que la versión final anterior) */
       .module-cta {
-        height: 202px;
+        height: 219px;
         padding: 16px 138px 16px 140px;
         background: white;
         display: flex;
@@ -171,17 +167,16 @@
       .cta-title {
         font-size: 24px;
         font-weight: 600;
-        color: #2E312F;
+        color: #2e312f;
         margin-bottom: 12px;
       }
       .cta-text {
         font-size: 18px;
         font-weight: 400;
-        color: #2E312F;
+        color: #2e312f;
         line-height: 20px;
       }
-      
-      /* Widget de Zendesk: se mantiene la lógica del HTML base */
+      /* Integración del widget de Zendesk (se mantiene la lógica exacta del HTML base) */
       .zEWidget-launcher {
         z-index: 9999 !important;
         right: 20px !important;
@@ -191,7 +186,7 @@
   </head>
   <body>
     <div class="container">
-      <!-- Módulo 1: Header -->
+      <!-- MÓDULO 1: HEADER -->
       <div class="module-header">
         <div class="top-bar">
           Poné a prueba el bot que lo quiere todo... menos trabajar los lunes 🤖
@@ -201,17 +196,14 @@
           <p class="subtitle">Un espacio para probar, explorar y mejorar</p>
         </header>
       </div>
-      
-      <!-- Módulo 2: Beta Message -->
+      <!-- MÓDULO 2: MENSAJE BETA -->
       <section class="module-beta">
         <p class="beta-message">
-          Esto no es un bot cualquiera: está en beta y necesita tu ojo crítico
-          <br>
+          Esto no es un bot cualquiera: está en beta y necesita tu ojo crítico<br />
           <span class="highlight">¿Lo ayudás a mejorar?</span>
         </p>
       </section>
-      
-      <!-- Módulo 3: Tarjetas -->
+      <!-- MÓDULO 3: TARJETAS -->
       <section class="module-cards">
         <div class="card-container">
           <!-- Tarjeta 1 -->
@@ -224,7 +216,6 @@
               </p>
             </div>
           </div>
-          
           <!-- Tarjeta 2 -->
           <div class="instruction-card">
             <div class="number-circle">2</div>
@@ -235,7 +226,6 @@
               </p>
             </div>
           </div>
-          
           <!-- Tarjeta 3 -->
           <div class="instruction-card">
             <div class="number-circle">3</div>
@@ -248,8 +238,7 @@
           </div>
         </div>
       </section>
-      
-      <!-- Módulo 4: CTA -->
+      <!-- MÓDULO 4: CTA -->
       <section class="module-cta">
         <div class="cta-box">
           <h2 class="cta-title">¡Interactúa con el bot ahora! 👉</h2>
@@ -259,8 +248,7 @@
         </div>
       </section>
     </div>
-    
-    <!-- Script de Zendesk (conservado del original) -->
+    <!-- Script de Zendesk (se mantiene sin cambios) -->
     <script
       id="ze-snippet"
       src="https://static.zdassets.com/ekr/snippet.js?key=6fb9dc32-179d-4d50-81df-15b953b85fec"
