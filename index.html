@@ -2,9 +2,8 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <!-- Usamos width=device-width para que el viewport se adapte correctamente -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Meta CSP actualizada -->
+    <!-- Meta CSP original que permite el chatbot -->
     <meta
       http-equiv="Content-Security-Policy"
       content="default-src 'self' https://*; img-src 'self' data: https://*; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.zdassets.com https://zendesk-eu.my.sentry.io https://api.smooch.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://* wss://api.smooch.io; frame-src 'self' https://*;"
@@ -23,7 +22,7 @@
         font-family: 'Montserrat', sans-serif;
       }
 
-      /* Contenedor general (ancho 1440px, alto 979px, padding-bottom 12px) */
+      /* Contenedor general */
       .container {
         width: 1440px;
         height: 979px;
@@ -33,28 +32,15 @@
         flex-direction: column;
         gap: 1px;
         padding-bottom: 12px;
-        /* No usamos position: relative para no interferir con el fixed del widget */
       }
 
-      /* Cada módulo ocupará 1440px de ancho */
-      .module-header,
-      .module-beta,
-      .module-cards,
-      .module-cta {
-        width: 1440px;
-      }
-
-      /* ───────── MÓDULO 1: HEADER ───────── */
+      /* MÓDULO 1: HEADER - Ajustes de UI */
       .module-header {
         display: flex;
         flex-direction: column;
       }
-      /* Top-bar (ajuste mínimo):
-         - Se cambia de 48px a 64px de alto.
-         - Fondo: #4D5363 (antes blanco).
-         - Se agrega un borde: 1px solid #2E312F.
-         - Texto en blanco, font-size 14px, font-weight 500 (incluye el emoji 🤖).
-      */
+
+      /* Top-bar modificada */
       .top-bar {
         height: 64px;
         padding: 0 144px 0 141px;
@@ -66,11 +52,8 @@
         color: white;
         font-weight: 500;
       }
-      /* Main header (ajuste mínimo):
-         - Se reduce la altura de 220px a 201px.
-         - Se mantienen los paddings (64px top/bottom, 141px left/right) y el fondo (#4D5363).
-         - Los textos se mantienen con tamaños: título 58px y subtítulo 32px.
-      */
+
+      /* Main header ajustado */
       .main-header {
         height: 201px;
         padding: 64px 141px;
@@ -81,12 +64,14 @@
         align-items: flex-start;
         gap: 12px;
       }
+
       .main-title {
         font-size: 58px;
         font-weight: 700;
         line-height: 48px;
         color: white;
       }
+
       .subtitle {
         font-size: 32px;
         font-weight: 600;
@@ -94,28 +79,26 @@
         color: white;
       }
 
-      /* ───────── MÓDULO 2: MENSAJE BETA ─────────
-         - Se mantiene la altura de 100px y padding de 23px vertical y 140px horizontal.
-         - Se ajusta el contenido para que se alinee al final (flex-end).
-         - Se cambia la tipografía a font-size 22px y font-weight 600.
-      */
+      /* MÓDULO 2: MENSAJE BETA ajustado */
       .module-beta {
         height: 100px;
         padding: 23px 140px;
         display: flex;
         align-items: flex-end;
       }
+
       .beta-message {
         font-size: 22px;
         font-weight: 600;
         line-height: 30px;
         color: #2e312f;
       }
+
       .beta-message .highlight {
         color: #0176d3;
       }
 
-      /* ───────── MÓDULO 3: TARJETAS (se conserva la estructura original) ───────── */
+      /* MÓDULO 3: TARJETAS (igual al original funcional) */
       .module-cards {
         height: 396px;
         padding: 10px 141px;
@@ -125,12 +108,14 @@
         justify-content: center;
         align-items: flex-start;
       }
+
       .card-container {
         display: flex;
         flex-direction: column;
         gap: 12px;
         width: 100%;
       }
+
       .instruction-card {
         height: 108px;
         padding: 16px 24px;
@@ -141,6 +126,7 @@
         align-items: center;
         gap: 16px;
       }
+
       .number-circle {
         width: 64px;
         height: 64px;
@@ -154,22 +140,25 @@
         font-weight: 600;
         flex-shrink: 0;
       }
+
       .card-content {
         flex-grow: 1;
       }
+
       .card-title {
         font-size: 16px;
         font-weight: 400;
         color: #2e312f;
         margin-bottom: 2px;
       }
+
       .card-description {
         font-size: 14px;
         color: #757875;
         line-height: 18px;
       }
 
-      /* ───────── MÓDULO 4: CTA (se conserva la estructura original) ───────── */
+      /* MÓDULO 4: CTA */
       .module-cta {
         height: 202px;
         padding: 16px 138px 16px 140px;
@@ -179,6 +168,7 @@
         justify-content: flex-start;
         gap: 12px;
       }
+
       .cta-box {
         width: 1150px;
         height: 96px;
@@ -188,12 +178,14 @@
         flex-direction: column;
         justify-content: center;
       }
+
       .cta-title {
         font-size: 24px;
         font-weight: 600;
         color: #2e312f;
         margin-bottom: 12px;
       }
+
       .cta-text {
         font-size: 18px;
         font-weight: 400;
@@ -201,7 +193,7 @@
         line-height: 20px;
       }
 
-      /* ───────── Integración del chatbot (Zendesk) ───────── */
+      /* Posicionamiento del chatbot (conservado del original) */
       .zEWidget-launcher {
         position: fixed !important;
         z-index: 9999 !important;
@@ -212,21 +204,21 @@
   </head>
   <body>
     <div class="container">
-      <!-- MÓDULO 1: HEADER -->
+      <!-- MÓDULO 1: HEADER con ajustes -->
       <div class="module-header">
         <div class="top-bar">
           Poné a prueba el bot que lo quiere todo... menos trabajar los lunes 🤖
         </div>
         <header class="main-header">
           <h1 class="main-title">Playground Bot Core</h1>
-          <p class="subtitle">Un espacio para probar, explorar y mejorar</p>
+          <p class="subtitle">Un espacio para probar, explorar y mejorar juntos</p>
         </header>
       </div>
 
-      <!-- MÓDULO 2: MENSAJE BETA -->
+      <!-- MÓDULO 2: MENSAJE BETA ajustado -->
       <section class="module-beta">
         <p class="beta-message">
-          Esto no es un bot cualquiera: está en beta y necesita tu ojo crítico<br>
+          Esto no es un bot cualquiera: está en beta y necesita tu ojo crítico<br />
           <span class="highlight">¿Lo ayudás a mejorar?</span>
         </p>
       </section>
@@ -285,7 +277,7 @@
       </section>
     </div>
 
-    <!-- Script de Zendesk (sin cambios, para que el bot funcione correctamente) -->
+    <!-- Script de Zendesk funcional (conservado del original) -->
     <script
       id="ze-snippet"
       src="https://static.zdassets.com/ekr/snippet.js?key=6fb9dc32-179d-4d50-81df-15b953b85fec"
