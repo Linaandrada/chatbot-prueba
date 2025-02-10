@@ -2,7 +2,7 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <!-- Usamos width=device-width para que el viewport se adapte y el widget se posicione correctamente -->
+    <!-- Usamos width=device-width para que el viewport se adapte correctamente -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Meta CSP actualizada -->
     <meta
@@ -23,7 +23,7 @@
         font-family: 'Montserrat', sans-serif;
       }
 
-      /* Contenedor general (ancho 1440px, alto 979px, padding-bottom 12px) */
+      /* CONTENEDOR GENERAL (ancho 1440px, alto 979px, padding-bottom 12) */
       .container {
         width: 1440px;
         height: 979px;
@@ -36,7 +36,7 @@
         /* No se establece position: relative para no interferir con el fixed del widget */
       }
 
-      /* Cada módulo ocupa 1440px de ancho */
+      /* Cada módulo ocupará 1440px de ancho */
       .module-header,
       .module-beta,
       .module-cards,
@@ -49,13 +49,13 @@
         display: flex;
         flex-direction: column;
       }
-
       /* Top-bar refinada:
-         - Altura: 64px
+         - Altura: 64px (antes 48px)
          - Padding: 0 144px 0 141px
-         - Fondo: #4D5363
-         - Borde: 1px sólido #2E312F
-         - Texto en blanco, font-size 14px, font-weight 500 */
+         - Fondo: #4D5363 (antes blanco)
+         - Borde: 1px solid #2E312F
+         - Texto en blanco, font-size 14px, font-weight 500 (incluye el emoji)
+      */
       .top-bar {
         height: 64px;
         padding: 0 144px 0 141px;
@@ -67,12 +67,12 @@
         color: white;
         font-weight: 500;
       }
-
       /* Main header refinado:
-         - Altura: 201px
+         - Altura: 201px (antes 220px)
          - Padding: 64px 141px
          - Fondo: #4D5363
-         - Contenido centrado verticalmente, gap 12px */
+         - El contenido se centra verticalmente (gap 12px)
+      */
       .main-header {
         height: 201px;
         padding: 64px 141px;
@@ -83,14 +83,12 @@
         align-items: flex-start;
         gap: 12px;
       }
-
       .main-title {
         font-size: 58px;
         font-weight: 700;
         line-height: 48px;
         color: white;
       }
-
       .subtitle {
         font-size: 32px;
         font-weight: 600;
@@ -101,26 +99,26 @@
       /* ───────── MÓDULO 2: MENSAJE BETA ─────────
          - Altura: 100px
          - Padding: 23px vertical y 140px horizontal
-         - Alineación: contenido al final (flex-end) */
+         - Alineación: contenido al final (para que el mensaje quede en la parte inferior)
+         - Se actualiza la tipografía a font-size 22 y font-weight 600
+      */
       .module-beta {
         height: 100px;
         padding: 23px 140px;
         display: flex;
         align-items: flex-end;
       }
-
       .beta-message {
         font-size: 22px;
         font-weight: 600;
         line-height: 30px;
         color: #2e312f;
       }
-
       .beta-message .highlight {
         color: #0176d3;
       }
 
-      /* ───────── MÓDULO 3: TARJETAS ───────── */
+      /* ───────── MÓDULO 3: TARJETAS (sin cambios respecto al HTML base) ───────── */
       .module-cards {
         height: 396px;
         padding: 10px 141px;
@@ -130,14 +128,12 @@
         justify-content: center;
         align-items: flex-start;
       }
-
       .card-container {
         display: flex;
         flex-direction: column;
         gap: 12px;
         width: 100%;
       }
-
       .instruction-card {
         height: 108px;
         padding: 16px 24px;
@@ -148,7 +144,6 @@
         align-items: center;
         gap: 16px;
       }
-
       .number-circle {
         width: 64px;
         height: 64px;
@@ -162,27 +157,27 @@
         font-weight: 600;
         flex-shrink: 0;
       }
-
       .card-content {
         flex-grow: 1;
       }
-
       .card-title {
         font-size: 16px;
         font-weight: 400;
         color: #2e312f;
         margin-bottom: 2px;
       }
-
       .card-description {
         font-size: 14px;
         color: #757875;
         line-height: 18px;
       }
 
-      /* ───────── MÓDULO 4: CTA ───────── */
+      /* ───────── MÓDULO 4: CTA ─────────
+         - Se actualiza la altura a 219px (antes 202px) para incorporar ajustes mínimos
+         - Padding se mantiene: 16px top/bottom, 140px left y 138px right
+      */
       .module-cta {
-        height: 202px;
+        height: 219px;
         padding: 16px 138px 16px 140px;
         background: white;
         display: flex;
@@ -190,7 +185,6 @@
         justify-content: flex-start;
         gap: 12px;
       }
-
       .cta-box {
         width: 1150px;
         height: 96px;
@@ -200,14 +194,12 @@
         flex-direction: column;
         justify-content: center;
       }
-
       .cta-title {
         font-size: 24px;
         font-weight: 600;
         color: #2e312f;
         margin-bottom: 12px;
       }
-
       .cta-text {
         font-size: 18px;
         font-weight: 400;
@@ -215,7 +207,9 @@
         line-height: 20px;
       }
 
-      /* ───────── Integración del chatbot (Zendesk) ───────── */
+      /* ───────── Chatbot (Zendesk) ─────────
+         Se conserva la posición fixed con z-index alto para que se muestre en la esquina inferior derecha.
+      */
       .zEWidget-launcher {
         position: fixed !important;
         z-index: 9999 !important;
@@ -299,7 +293,7 @@
       </section>
     </div>
 
-    <!-- Script de Zendesk (sin cambios para que el bot funcione) -->
+    <!-- Script de Zendesk (sin cambios, para que el bot funcione correctamente) -->
     <script
       id="ze-snippet"
       src="https://static.zdassets.com/ekr/snippet.js?key=6fb9dc32-179d-4d50-81df-15b953b85fec"
