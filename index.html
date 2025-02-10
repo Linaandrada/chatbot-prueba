@@ -23,7 +23,7 @@
         font-family: 'Montserrat', sans-serif;
       }
 
-      /* CONTENEDOR GENERAL (ancho 1440px, alto 979px, padding-bottom 12) */
+      /* Contenedor general (ancho 1440px, alto 979px, padding-bottom 12px) */
       .container {
         width: 1440px;
         height: 979px;
@@ -33,7 +33,7 @@
         flex-direction: column;
         gap: 1px;
         padding-bottom: 12px;
-        /* No se establece position: relative para no interferir con el fixed del widget */
+        /* No usamos position: relative para no interferir con el fixed del widget */
       }
 
       /* Cada módulo ocupará 1440px de ancho */
@@ -49,12 +49,11 @@
         display: flex;
         flex-direction: column;
       }
-      /* Top-bar refinada:
-         - Altura: 64px (antes 48px)
-         - Padding: 0 144px 0 141px
-         - Fondo: #4D5363 (antes blanco)
-         - Borde: 1px solid #2E312F
-         - Texto en blanco, font-size 14px, font-weight 500 (incluye el emoji)
+      /* Top-bar (ajuste mínimo):
+         - Se cambia de 48px a 64px de alto.
+         - Fondo: #4D5363 (antes blanco).
+         - Se agrega un borde: 1px solid #2E312F.
+         - Texto en blanco, font-size 14px, font-weight 500 (incluye el emoji 🤖).
       */
       .top-bar {
         height: 64px;
@@ -67,11 +66,10 @@
         color: white;
         font-weight: 500;
       }
-      /* Main header refinado:
-         - Altura: 201px (antes 220px)
-         - Padding: 64px 141px
-         - Fondo: #4D5363
-         - El contenido se centra verticalmente (gap 12px)
+      /* Main header (ajuste mínimo):
+         - Se reduce la altura de 220px a 201px.
+         - Se mantienen los paddings (64px top/bottom, 141px left/right) y el fondo (#4D5363).
+         - Los textos se mantienen con tamaños: título 58px y subtítulo 32px.
       */
       .main-header {
         height: 201px;
@@ -79,7 +77,7 @@
         background: #4d5363;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-end;
         align-items: flex-start;
         gap: 12px;
       }
@@ -97,10 +95,9 @@
       }
 
       /* ───────── MÓDULO 2: MENSAJE BETA ─────────
-         - Altura: 100px
-         - Padding: 23px vertical y 140px horizontal
-         - Alineación: contenido al final (para que el mensaje quede en la parte inferior)
-         - Se actualiza la tipografía a font-size 22 y font-weight 600
+         - Se mantiene la altura de 100px y padding de 23px vertical y 140px horizontal.
+         - Se ajusta el contenido para que se alinee al final (flex-end).
+         - Se cambia la tipografía a font-size 22px y font-weight 600.
       */
       .module-beta {
         height: 100px;
@@ -118,7 +115,7 @@
         color: #0176d3;
       }
 
-      /* ───────── MÓDULO 3: TARJETAS (sin cambios respecto al HTML base) ───────── */
+      /* ───────── MÓDULO 3: TARJETAS (se conserva la estructura original) ───────── */
       .module-cards {
         height: 396px;
         padding: 10px 141px;
@@ -172,12 +169,9 @@
         line-height: 18px;
       }
 
-      /* ───────── MÓDULO 4: CTA ─────────
-         - Se actualiza la altura a 219px (antes 202px) para incorporar ajustes mínimos
-         - Padding se mantiene: 16px top/bottom, 140px left y 138px right
-      */
+      /* ───────── MÓDULO 4: CTA (se conserva la estructura original) ───────── */
       .module-cta {
-        height: 219px;
+        height: 202px;
         padding: 16px 138px 16px 140px;
         background: white;
         display: flex;
@@ -207,9 +201,7 @@
         line-height: 20px;
       }
 
-      /* ───────── Chatbot (Zendesk) ─────────
-         Se conserva la posición fixed con z-index alto para que se muestre en la esquina inferior derecha.
-      */
+      /* ───────── Integración del chatbot (Zendesk) ───────── */
       .zEWidget-launcher {
         position: fixed !important;
         z-index: 9999 !important;
@@ -234,7 +226,7 @@
       <!-- MÓDULO 2: MENSAJE BETA -->
       <section class="module-beta">
         <p class="beta-message">
-          Esto no es un bot cualquiera: está en beta y necesita tu ojo crítico<br />
+          Esto no es un bot cualquiera: está en beta y necesita tu ojo crítico<br>
           <span class="highlight">¿Lo ayudás a mejorar?</span>
         </p>
       </section>
