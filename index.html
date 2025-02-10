@@ -21,23 +21,27 @@
         box-sizing: border-box;
         font-family: 'Montserrat', sans-serif;
       }
-      /* Contenedor principal: se mantiene el ancho, alto y márgenes originales */
+      /* Contenedor principal (HTML base que funcionaba) */
       .container {
         width: 1440px;
-        height: 979px;
         margin: 0 auto;
-        background: #f8f8f8;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
+        background: white;
+        min-height: 100vh;
+        padding-bottom: 100px;
+        position: relative;
       }
-      /* MÓDULO 1: HEADER */
+      /* Cada módulo ocupará 1440px de ancho */
+      .module-header,
+      .module-beta,
+      .module-cards,
+      .module-cta {
+        width: 1440px;
+      }
+      /* Módulo 1: Header */
       .module-header {
-        display: flex;
-        flex-direction: column;
+        /* Se mantiene la estructura en dos bloques: top-bar y main-header */
       }
-      /* Top-bar: ahora 64px de alto, fondo #4D5363, borde 1px sólido #2E312F y texto en blanco con font-weight 500 */
+      /* Top-bar refinada: 64px de alto, fondo #4D5363, borde 1px sólido #2E312F y texto en blanco (font-weight 500) */
       .top-bar {
         height: 64px;
         padding: 0 144px 0 141px;
@@ -49,7 +53,7 @@
         color: white;
         font-weight: 500;
       }
-      /* Main header: altura de 201px (el contenedor interno tiene 201px), padding de 64px en top y bottom, fondo #4D5363 */
+      /* Main header refinado: 201px de alto, padding de 64px laterales, fondo #4D5363 */
       .main-header {
         height: 201px;
         padding: 64px 141px;
@@ -72,15 +76,12 @@
         line-height: 48px;
         color: white;
       }
-      /* MÓDULO 2: Mensaje Beta (ajuste mínimo en tamaño de fuente y alineación)
-         Se utiliza el mismo alto y paddings que antes, pero se actualiza el font-size a 22 y se alinea el contenido al final */
+      /* Módulo 2: Mensaje Beta – ajuste mínimo: font-size 22, font-weight 600 y alineación al final */
       .module-beta {
         height: 100px;
         padding: 23px 140px;
         display: flex;
-        justify-content: flex-start;
         align-items: flex-end;
-        gap: 10px;
       }
       .beta-message {
         font-size: 22px;
@@ -91,7 +92,7 @@
       .beta-message .highlight {
         color: #0176d3;
       }
-      /* MÓDULO 3: TARJETAS (sin cambios) */
+      /* Módulo 3: Tarjetas (se conserva la estructura del HTML final anterior) */
       .module-cards {
         height: 396px;
         padding: 10px 141px;
@@ -99,7 +100,6 @@
         flex-direction: column;
         gap: 10px;
         justify-content: center;
-        align-items: flex-start;
       }
       .card-container {
         display: flex;
@@ -145,14 +145,13 @@
         color: #757875;
         line-height: 18px;
       }
-      /* MÓDULO 4: CTA (se mantiene igual que la versión final anterior) */
+      /* Módulo 4: CTA */
       .module-cta {
         height: 219px;
         padding: 16px 138px 16px 140px;
         background: white;
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
         gap: 12px;
       }
       .cta-box {
@@ -176,7 +175,7 @@
         color: #2e312f;
         line-height: 20px;
       }
-      /* Integración del widget de Zendesk (se mantiene la lógica exacta del HTML base) */
+      /* Widget de Zendesk: se mantiene la lógica del HTML base */
       .zEWidget-launcher {
         z-index: 9999 !important;
         right: 20px !important;
@@ -186,24 +185,24 @@
   </head>
   <body>
     <div class="container">
-      <!-- MÓDULO 1: HEADER -->
+      <!-- Módulo 1: Header -->
       <div class="module-header">
         <div class="top-bar">
           Poné a prueba el bot que lo quiere todo... menos trabajar los lunes 🤖
         </div>
-        <header class="main-header">
+        <div class="main-header">
           <h1 class="main-title">Playground Bot Core</h1>
           <p class="subtitle">Un espacio para probar, explorar y mejorar</p>
-        </header>
+        </div>
       </div>
-      <!-- MÓDULO 2: MENSAJE BETA -->
+      <!-- Módulo 2: Mensaje Beta -->
       <section class="module-beta">
         <p class="beta-message">
-          Esto no es un bot cualquiera: está en beta y necesita tu ojo crítico<br />
+          Esto no es un bot cualquiera: está en beta y necesita tu ojo crítico<br>
           <span class="highlight">¿Lo ayudás a mejorar?</span>
         </p>
       </section>
-      <!-- MÓDULO 3: TARJETAS -->
+      <!-- Módulo 3: Tarjetas -->
       <section class="module-cards">
         <div class="card-container">
           <!-- Tarjeta 1 -->
@@ -238,7 +237,7 @@
           </div>
         </div>
       </section>
-      <!-- MÓDULO 4: CTA -->
+      <!-- Módulo 4: CTA -->
       <section class="module-cta">
         <div class="cta-box">
           <h2 class="cta-title">¡Interactúa con el bot ahora! 👉</h2>
