@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Meta CSP original que permite el chatbot -->
+    <!-- Meta CSP actualizada -->
     <meta
       http-equiv="Content-Security-Policy"
       content="default-src 'self' https://*; img-src 'self' data: https://*; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.zdassets.com https://zendesk-eu.my.sentry.io https://api.smooch.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://* wss://api.smooch.io; frame-src 'self' https://*;"
@@ -22,7 +22,7 @@
         font-family: 'Montserrat', sans-serif;
       }
 
-      /* Contenedor general */
+      /* Contenedor general (ancho 1440px, alto 979px, padding-bottom 12px) */
       .container {
         width: 1440px;
         height: 979px;
@@ -34,13 +34,20 @@
         padding-bottom: 12px;
       }
 
-      /* MÓDULO 1: HEADER - Ajustes de UI */
+      /* Cada módulo ocupará 1440px de ancho */
+      .module-header,
+      .module-beta,
+      .module-cards,
+      .module-cta {
+        width: 1440px;
+      }
+
+      /* ───────── MÓDULO 1: HEADER ───────── */
       .module-header {
         display: flex;
         flex-direction: column;
       }
-
-      /* Top-bar modificada */
+      /* Top-bar: altura 64px, fondo #4D5363, borde y tipografía ajustada */
       .top-bar {
         height: 64px;
         padding: 0 144px 0 141px;
@@ -52,8 +59,7 @@
         color: white;
         font-weight: 500;
       }
-
-      /* Main header ajustado */
+      /* Main header: altura 201px, mismo padding y fondo */
       .main-header {
         height: 201px;
         padding: 64px 141px;
@@ -64,14 +70,12 @@
         align-items: flex-start;
         gap: 12px;
       }
-
       .main-title {
         font-size: 58px;
         font-weight: 700;
         line-height: 48px;
         color: white;
       }
-
       .subtitle {
         font-size: 32px;
         font-weight: 600;
@@ -79,26 +83,24 @@
         color: white;
       }
 
-      /* MÓDULO 2: MENSAJE BETA ajustado */
+      /* ───────── MÓDULO 2: MENSAJE BETA ───────── */
       .module-beta {
         height: 100px;
         padding: 23px 140px;
         display: flex;
         align-items: flex-end;
       }
-
       .beta-message {
         font-size: 22px;
         font-weight: 600;
         line-height: 30px;
         color: #2e312f;
       }
-
       .beta-message .highlight {
         color: #0176d3;
       }
 
-      /* MÓDULO 3: TARJETAS (igual al original funcional) */
+      /* ───────── MÓDULO 3: TARJETAS ───────── */
       .module-cards {
         height: 396px;
         padding: 10px 141px;
@@ -108,14 +110,12 @@
         justify-content: center;
         align-items: flex-start;
       }
-
       .card-container {
         display: flex;
         flex-direction: column;
         gap: 12px;
         width: 100%;
       }
-
       .instruction-card {
         height: 108px;
         padding: 16px 24px;
@@ -126,7 +126,6 @@
         align-items: center;
         gap: 16px;
       }
-
       .number-circle {
         width: 64px;
         height: 64px;
@@ -140,25 +139,22 @@
         font-weight: 600;
         flex-shrink: 0;
       }
-
       .card-content {
         flex-grow: 1;
       }
-
       .card-title {
         font-size: 16px;
         font-weight: 400;
         color: #2e312f;
         margin-bottom: 2px;
       }
-
       .card-description {
         font-size: 14px;
         color: #757875;
         line-height: 18px;
       }
 
-      /* MÓDULO 4: CTA */
+      /* ───────── MÓDULO 4: CTA ───────── */
       .module-cta {
         height: 202px;
         padding: 16px 138px 16px 140px;
@@ -168,7 +164,6 @@
         justify-content: flex-start;
         gap: 12px;
       }
-
       .cta-box {
         width: 1150px;
         height: 96px;
@@ -178,14 +173,12 @@
         flex-direction: column;
         justify-content: center;
       }
-
       .cta-title {
         font-size: 24px;
         font-weight: 600;
         color: #2e312f;
         margin-bottom: 12px;
       }
-
       .cta-text {
         font-size: 18px;
         font-weight: 400;
@@ -193,7 +186,7 @@
         line-height: 20px;
       }
 
-      /* Posicionamiento del chatbot (conservado del original) */
+      /* ───────── Integración del chatbot (Zendesk) ───────── */
       .zEWidget-launcher {
         position: fixed !important;
         z-index: 9999 !important;
@@ -204,21 +197,21 @@
   </head>
   <body>
     <div class="container">
-      <!-- MÓDULO 1: HEADER con ajustes -->
+      <!-- MÓDULO 1: HEADER -->
       <div class="module-header">
         <div class="top-bar">
           Poné a prueba el bot que lo quiere todo... menos trabajar los lunes 🤖
         </div>
         <header class="main-header">
           <h1 class="main-title">Playground Bot Core</h1>
-          <p class="subtitle">Un espacio para probar, explorar y mejorar juntos</p>
+          <p class="subtitle">Un espacio para probar, explorar y mejorar</p>
         </header>
       </div>
 
-      <!-- MÓDULO 2: MENSAJE BETA ajustado -->
+      <!-- MÓDULO 2: MENSAJE BETA -->
       <section class="module-beta">
         <p class="beta-message">
-          Esto no es un bot cualquiera: está en beta y necesita tu ojo crítico<br />
+          Esto no es un bot cualquiera: está en beta y necesita tu ojo crítico<br>
           <span class="highlight">¿Lo ayudás a mejorar?</span>
         </p>
       </section>
@@ -232,8 +225,7 @@
             <div class="card-content">
               <h3 class="card-title">Tocá, explorá, reflexioná</h3>
               <p class="card-description">
-                Explora cómo responde. ¿Encaja? ¿Desentona? Tu curiosidad es el mejor test de
-                estrés que podemos pedir
+                Explora cómo responde. ¿Encaja? ¿Desentona? Tu curiosidad es el mejor test de estrés que podemos pedir
               </p>
             </div>
           </div>
@@ -244,8 +236,7 @@
             <div class="card-content">
               <h3 class="card-title">Activá el modo detective</h3>
               <p class="card-description">
-                ¿Algo no suena bien? ¿Faltan opciones? ¿Te dejó en visto? Márcalo, dibújalo, hazle un
-                meme si hace falta
+                ¿Algo no suena bien? ¿Faltan opciones? ¿Te dejó en visto? Márcalo, dibújalo, hazle un meme si hace falta
               </p>
             </div>
           </div>
@@ -258,8 +249,7 @@
                 Si el bot pudiera, te mandaría unas mediaslunas 🥐
               </h3>
               <p class="card-description">
-                Cada comentario que nos dejes lo hace un poquito más humano (pero no demasiado,
-                tranqui)
+                Cada comentario que nos dejes lo hace un poquito más humano (pero no demasiado, tranqui)
               </p>
             </div>
           </div>
@@ -277,7 +267,7 @@
       </section>
     </div>
 
-    <!-- Script de Zendesk funcional (conservado del original) -->
+    <!-- Script de Zendesk (para el chatbot) -->
     <script
       id="ze-snippet"
       src="https://static.zdassets.com/ekr/snippet.js?key=6fb9dc32-179d-4d50-81df-15b953b85fec"
