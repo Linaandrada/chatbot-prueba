@@ -2,7 +2,8 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=1440, initial-scale=1.0" />
+    <!-- Usamos width=device-width para que el viewport se adapte y el widget se posicione correctamente -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Meta CSP actualizada -->
     <meta
       http-equiv="Content-Security-Policy"
@@ -32,11 +33,10 @@
         flex-direction: column;
         gap: 1px;
         padding-bottom: 12px;
-        /* Se conserva position: relative para el widget si fuera necesario */
-        position: relative;
+        /* No se establece position: relative para no interferir con el fixed del widget */
       }
 
-      /* Cada módulo ocupará el ancho completo (1440px) */
+      /* Cada módulo ocupa 1440px de ancho */
       .module-header,
       .module-beta,
       .module-cards,
@@ -54,7 +54,7 @@
          - Altura: 64px
          - Padding: 0 144px 0 141px
          - Fondo: #4D5363
-         - Borde: 1px solid #2E312F
+         - Borde: 1px sólido #2E312F
          - Texto en blanco, font-size 14px, font-weight 500 */
       .top-bar {
         height: 64px;
@@ -70,9 +70,9 @@
 
       /* Main header refinado:
          - Altura: 201px
-         - Padding: 64px 141px (se mantiene igual)
+         - Padding: 64px 141px
          - Fondo: #4D5363
-         - Contenido centrado verticalmente y alineado a la izquierda, gap 12px */
+         - Contenido centrado verticalmente, gap 12px */
       .main-header {
         height: 201px;
         padding: 64px 141px;
@@ -101,7 +101,7 @@
       /* ───────── MÓDULO 2: MENSAJE BETA ─────────
          - Altura: 100px
          - Padding: 23px vertical y 140px horizontal
-         - Contenido alineado al final (flex-end) para que quede en la parte inferior del módulo */
+         - Alineación: contenido al final (flex-end) */
       .module-beta {
         height: 100px;
         padding: 23px 140px;
@@ -120,8 +120,7 @@
         color: #0176d3;
       }
 
-      /* ───────── MÓDULO 3: TARJETAS ─────────
-         (Sin cambios respecto al HTML que funcionaba) */
+      /* ───────── MÓDULO 3: TARJETAS ───────── */
       .module-cards {
         height: 396px;
         padding: 10px 141px;
@@ -260,6 +259,7 @@
               </p>
             </div>
           </div>
+
           <!-- Tarjeta 2 -->
           <div class="instruction-card">
             <div class="number-circle">2</div>
@@ -271,6 +271,7 @@
               </p>
             </div>
           </div>
+
           <!-- Tarjeta 3 -->
           <div class="instruction-card">
             <div class="number-circle">3</div>
@@ -298,7 +299,7 @@
       </section>
     </div>
 
-    <!-- Script de Zendesk (se mantiene sin cambios) -->
+    <!-- Script de Zendesk (sin cambios para que el bot funcione) -->
     <script
       id="ze-snippet"
       src="https://static.zdassets.com/ekr/snippet.js?key=6fb9dc32-179d-4d50-81df-15b953b85fec"
